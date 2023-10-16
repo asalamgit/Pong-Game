@@ -1,0 +1,156 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserState {
+  OFFLINE
+  ONLINE
+  IN_GAME
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String?   @unique
+  password  String?
+  image     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  state     UserState @default(OFFLINE)
+
+  isTwoFa     Boolean @default(false)
+  twoFaSecret String?
+
+  provider  Provider?
+  message   Message[]
+  profile   Profile?
+  channel   Channel[]
+  channelId String?
+  friends   User[]    @relation("friends")
+  friendsOf User[]    @relation("friends")
+
+  notificationsOwner  Notifications[] @relation("Owner")
+  notificationsTarget Notifications[] @relation("Target")
+  ChannelUser         ChannelUser[]
+
+  blockedList   User[] @relation("block")
+  blockedByList User[] @relation("block")
+}
+
+model Profile {
+  id               Int      @id @default(autoincrement())
+  points           Int
+  victories        Int
+  defeats          Int
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           Int      @unique
+  gamesHistoryHome Game[]   @relation("Player1")
+  gamesHistoryAway Game[]   @relation("Player2")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Game {
+  id              Int      @id @default(autoincrement())
+  player1         Profile  @relation("Player1", fields: [playerId], references: [id])
+  playerId        Int
+  player2         Profile  @relation("Player2", fields: [opponentId], references: [id])
+  opponentId      Int
+  playerRanking   Int
+  opponentRanking Int
+  score           Int[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+enum ProviderType {
+  GOOGLE
+  FACEBOOK
+  FORTYTWO
+}
+
+model Provider {
+  id         String       @id @default(uuid())
+  userId     Int          @unique
+  type       ProviderType
+  providerId String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ChannelUser {
+  id        String    @id @default(uuid())
+  isAdmin   Boolean
+  isOwner   Boolean
+  isBan     Boolean
+  channel   Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId String
+  user      User      @relation(fields: [userId], references: [id])
+  muteFor   DateTime? @db.Timestamp(0)
+  userId    Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum ChannelType {
+  PUBLIC
+  PROTECTED
+  PRIVATE
+  DIRECT_MESSAGE
+}
+
+model Channel {
+  id            String        @id @default(uuid())
+  name          String
+  description   String
+  users         User[]
+  messages      Message[]
+  type          ChannelType
+  password      String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  ChannelRights ChannelUser[]
+}
+
+model Message {
+  id String @id @default(uuid())
+
+  content String
+  userId  Int
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  channel   Channel? @relation(fields: [channelId], references: [id])
+  channelId String?
+
+  isInfo Boolean?
+}
+
+enum NotificationType {
+  FRIENDSHIP
+}
+
+model Notifications {
+  id String @id @default(uuid())
+
+  type NotificationType
+
+  ownerId Int
+  owner   User @relation("Owner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  targetId Int
+  target   User @relation("Target", fields: [targetId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

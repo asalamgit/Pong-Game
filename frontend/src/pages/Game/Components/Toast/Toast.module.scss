@@ -1,0 +1,55 @@
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.toast {
+  position: fixed;
+  background-color: #0008fd;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 9999;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300px;
+  animation: slideIn 0.3s ease-in-out;
+
+  p {
+    font-size: 13px;
+    width: 260px;
+  }
+
+  button {
+    width: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .acceptButton {
+    background-color: var(--color-green);
+    &:hover {
+      background-color: var(--color-light-green);
+    }
+  }
+
+  .declineButton {
+    background-color: var(--color-red);
+    &:hover {
+      background-color: var(--color-light-red);
+    }
+  }
+}

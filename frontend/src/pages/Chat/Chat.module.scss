@@ -1,0 +1,343 @@
+@import '../../styles/medias-queries.scss';
+
+.chat {
+  font-size: xx-large;
+  display: flex;
+  --header-chat-size: 60px;
+
+  height: var(--body-size);
+
+  @include md {
+    position: relative;
+    height: calc(100vh - 8.6rem);
+  }
+
+  .tab {
+    width: 350px;
+    background-color: var(--color-dark-gray-500);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 100%;
+  }
+  @include md {
+    .hideTab {
+      display: none;
+    }
+
+    .showTab {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3;
+    }
+  }
+  .closeTab {
+    display: none;
+    @include md {
+      display: block;
+      background-color: red;
+      color: white;
+      position: absolute;
+      top: 14px;
+      right: -40px;
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: var(--color-dark-gray-300);
+    width: 100%;
+
+    .messageHeader {
+      width: 100%;
+      height: var(--header-chat-size);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      @include md {
+        position: relative;
+      }
+
+      .showTabButton {
+        display: none;
+        @include md {
+          display: block;
+          position: absolute;
+          background-color: transparent;
+          top: 20px;
+          left: 10px;
+          z-index: 2;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .messageWrapper {
+      width: 90%;
+    }
+  }
+
+  .channelSettings {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    .settingIcon {
+      cursor: pointer;
+      color: var(--color-gray);
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  .currentChannelName {
+    width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    margin-left: 2rem;
+  }
+
+  .currentChannelDescription {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: #e0e0e0;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    font-style: normal;
+    margin: 1rem 0 0 2rem;
+  }
+
+  .tabHeader {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #e0e0e0;
+
+    .channelReturnHeader {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      height: var(--header-chat-size);
+      width: 100%;
+
+      .channelReturn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        padding: 1rem;
+        color: var(--color-gray-500);
+        color: #e0e0e0;
+
+        &:hover {
+          background-color: var(--color-dark-gray-300);
+          color: white;
+        }
+      }
+    }
+  }
+
+  .channelsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    height: var(--header-chat-size);
+    width: 100%;
+    color: #e0e0e0;
+
+    .newChannelIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: var(--color-dark-gray-300);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+
+      &:hover {
+        background-color: var(--color-gray);
+      }
+    }
+  }
+
+  .directHeader {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    color: #e0e0e0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+
+    .newChannelIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: var(--color-dark-gray-300);
+      color: var(--color-white);
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      &:hover {
+        background-color: var(--color-gray);
+      }
+    }
+
+    .searchDirect {
+      position: absolute;
+      left: 110%;
+      top: 0;
+
+      .newMsgInput {
+        height: 2rem;
+        font-size: 1rem;
+        padding-left: 0.5rem;
+        outline: none;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--color-gray-300);
+      }
+
+      .directMessageWrapper {
+        max-height: 200px;
+        overflow-y: auto;
+
+        .directName {
+          text-align: center;
+          cursor: pointer;
+          background-color: var(--color-gray-300);
+          color: black;
+          &:hover {
+            background-color: var(--color-light-gray);
+          }
+        }
+      }
+    }
+  }
+
+  .currentChannel {
+    width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    margin-left: 2rem;
+  }
+
+  .currentChannelDescription {
+    color: #e0e0e0;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    font-style: normal;
+    margin: 1rem 0 0 2rem;
+  }
+
+  .members {
+    padding: 1rem;
+    font-family: 'Noto Sans';
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 25px;
+    color: var(--color-gray-300);
+  }
+
+  .form {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      padding: 50px;
+      border-radius: 8px;
+      border: 1px solid var(--color-grey);
+      display: flex;
+      flex-direction: column;
+
+      button {
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
+.channelMember {
+  overflow-y: auto;
+  height: 600px;
+
+  @include xxl {
+    height: 400px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.messagesScroll {
+  height: 80vh;
+
+  @include md {
+    height: 65vh;
+  }
+  width: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.actions {
+  display: flex;
+  height: 80vh;
+  width: 60vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray);
+
+  .select {
+    font-size: 3rem;
+    color: #e0e0e0;
+  }
+}
+
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.channelSection {
+  height: 50%;
+}

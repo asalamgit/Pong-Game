@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 24px;
+    width: 500px;
+    background-color: var(--color-white);
+    padding: 2rem;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .title {
+        font-family: 'Press Start 2p';
+        color: var(--color-dark-gray);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .subtitle {
+        color: var(--color-dark-gray);
+        font-family: 'Noto Sans';
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .textPresentation {
+        font-family: 1rem;
+        font-family: 'Noto Sans';
+        font-weight: 400;
+        color: var(--color-dark-gray);
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 1.5rem 0;
+
+      .fields {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+
+        .passwordIcon {
+          fill: var(--color-dark-gray-200);
+          cursor: pointer;
+        }
+      }
+
+      .submit {
+        height: 3rem;
+        background-color: var(--color-blue);
+        border: none;
+        border-radius: 8px;
+        color: var(--color-white);
+        font-family: 'Noto Sans';
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+    }
+
+    .centeredItems {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      .smallerText {
+        font-family: 'Noto Sans';
+        color: var(--color-gray);
+
+        .link {
+          padding-left: 0.5rem;
+          cursor: pointer;
+          color: var(--color-blue);
+        }
+      }
+
+      .socials {
+        display: flex;
+        gap: 2rem;
+
+        .icon {
+          cursor: pointer;
+          width: 4rem;
+        }
+
+        .fortyTwo {
+          width: 4rem;
+          fill: var(--color-gray);
+          padding: 1rem;
+          border: 1px solid var(--color-dark-gray);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

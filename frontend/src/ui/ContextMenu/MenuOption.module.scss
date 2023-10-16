@@ -1,0 +1,15 @@
+.option {
+  font-family: 'Noto Sans';
+  text-align: center;
+  background-color: var(--color-dark-gray-300);
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  padding-top: 10px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-dark-gray-400);
+  }
+}

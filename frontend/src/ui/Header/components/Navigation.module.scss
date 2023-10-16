@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  border-radius: 12px;
+    &:hover {
+      background-color: var(--color-gray-600);
+    }
+
+  .link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-weight: 500;
+    width: 4rem;
+    color: var(--color-gray);
+
+    &__selected {
+      color: var(--color-blue);
+    }
+  }
+
+  .bar {
+    position: absolute;
+    width: 150%;
+    bottom: 0;
+    height: 3px;
+    border-radius: 8px 8px 0px 0px;
+    background: var(--color-blue);
+  }
+}

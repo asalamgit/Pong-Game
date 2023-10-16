@@ -1,0 +1,40 @@
+.players {
+  margin-top: 20px;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--color-dark-gray);
+
+  .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .profileImg {
+      width: 50px;
+      border-radius: 100%;
+      margin-bottom: 10px;
+    }
+
+    .userNameElo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .username {
+        font-size: 1.5rem;
+      }
+      .elo {
+        font-size: 0.8rem;
+        padding-top: 0.25rem;
+        margin-left: 8px;
+      }
+    }
+
+    .point {
+      font-size: 2.5rem;
+    }
+  }
+}

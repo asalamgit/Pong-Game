@@ -1,0 +1,31 @@
+.dropdown {
+  margin-top: 20px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+
+  label {
+    color: white;
+  }
+
+  select {
+    width: 150px;
+    background-color: #022a52;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+
+    option {
+      background-color: #1e90ff;
+      color: white;
+    }
+  }
+}

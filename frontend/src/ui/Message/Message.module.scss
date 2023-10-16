@@ -1,0 +1,49 @@
+.message {
+  display: flex;
+  margin-bottom: 36px;
+
+  img {
+    height: 42px;
+    border-radius: 7px;
+  }
+
+  .container {
+    margin-left: 28px;
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .name {
+        color: var(--color-gray);
+        font-family: 'Noto Sans';
+        font-size: 1rem;
+      }
+
+      .date {
+        color: var(--color-gray);
+        font-family: 'Noto Sans';
+        font-size: 1rem;
+      }
+    }
+
+    .showMessage {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    .content {
+      color: var(--color-gray-300);
+      font-family: 'Noto Sans';
+      font-size: 1rem;
+    }
+
+    .infoMessage {
+      color: rgb(220, 20, 60);
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+  }
+}

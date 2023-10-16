@@ -1,0 +1,47 @@
+@import '../../styles/medias-queries.scss';
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 0 2rem;
+  height: var(--header-size);
+  background-color: var(--color-background-header);
+
+  @include md {
+    position: relative;
+    margin-bottom: var(--header-size);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-family: 'Press Start 2P';
+    color: var(--color-gray);
+    font-size: 1.5rem;
+
+    @include sm {
+      font-size: 1.1rem;
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    height: 100%;
+
+    @include md {
+      background-color: var(--color-background-header);
+      border-top: 1px solid var(--color-background);
+      position: absolute;
+      width: 100%;
+      left: 0%;
+      top: 100%;
+    }
+  }
+}

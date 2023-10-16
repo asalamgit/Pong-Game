@@ -1,0 +1,91 @@
+.profile {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  &:hover {
+    background-color: var(--color-gray);
+  }
+
+  .userName {
+    color: var(--color-light-gray);
+    font-size: 1.5rem;
+    width: 15rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .profilePicture {
+    height: 42px;
+    border-radius: 7px;
+  }
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  left: 40%;
+  background-color: var(--color-dark-gray-500);
+  color: var(--color-white);
+  border-radius: 20px;
+
+  .title {
+    color: red;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .disclaimer {
+    font-size: 1.25rem;
+  }
+
+  .duration {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-gray);
+    border-radius: 8px;
+    padding: 1rem;
+
+    .input {
+      background-color: var(--color-gray);
+      border: none;
+      box-shadow: none;
+      outline: none;
+      color: var(--color-white);
+      font-size: 1rem;
+      width: 5rem;
+    }
+    .seconds {
+      font-size: 1rem;
+    }
+  }
+
+  .muteButton {
+    width: 100%;
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-light-red);
+
+    color: var(--color-white);
+    font-size: 1.3rem;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--color-red);
+    }
+  }
+}

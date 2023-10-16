@@ -1,0 +1,10 @@
+.menu {
+  position: absolute;
+  z-index: 20;
+
+  .container {
+    background-color: var(--color-dark-gray-300);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,90 @@
+@import '../../../styles/medias-queries.scss';
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  font-family: 'Noto Sans';
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+
+    .profileImg {
+      width: 50px;
+      max-height: 65px;
+      border-radius: 8px;
+
+      @include sm {
+        width: 40px;
+      }
+    }
+
+    .username {
+      color: var(--color-dark-gray);
+    }
+
+    .arrow {
+      margin-top: 5px;
+      fill: var(--color-dark-gray);
+    }
+
+    .transformArrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  .menu {
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    top: 100%;
+    justify-content: space-evenly;
+    position: absolute;
+    right: 0;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--color-gray-300);
+    width: 14rem;
+    height: 10rem;
+    border-radius: 12px;
+    gap: 5px;
+    background-color: var(--color-white);
+
+    .sep {
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gray-300);
+    }
+
+    .menuButton {
+      display: flex;
+      align-items: center;
+      padding: 15px 0px 15px 10px;
+      gap: 10px;
+      border: none;
+      background: none;
+      width: 100%;
+      border-radius: 8px;
+      color: var(--color-dark-gray-200);
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-gray-200);
+      }
+
+      .logoutLogo {
+        fill: var(--color-light-red);
+      }
+
+      .logoutText {
+        color: var(--color-light-red);
+      }
+    }
+  }
+}

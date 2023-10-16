@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .icon {
+      fill: white;
+    }
+
+    .button {
+      margin-top: 0.3rem;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0.2rem;
+      border: none;
+    }
+
+    .acceptButton {
+      background-color: var(--color-green);
+      &:hover {
+        background-color: var(--color-light-green);
+      }
+    }
+    
+    .denyButton {
+      background-color: var(--color-red);
+      &:hover {
+        background-color: var(--color-light-red);
+      }
+    }
+  }
+}

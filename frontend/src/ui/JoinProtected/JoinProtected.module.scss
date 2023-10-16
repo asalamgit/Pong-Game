@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  top: 40%;
+  left: 40%;
+  position: absolute;
+  justify-content: center;
+  font-family: 'Noto Sans';
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem;
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 470px;
+    height: 200px;
+    background-color: var(--color-dark-gray-500);
+    color: var(--color-white);
+
+    .field {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .password {
+        height: 50px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        font-family: 'Noto Sans';
+        background-color: var(--color-dark-gray-400);
+        color: var(--color-gray);
+        outline: none;
+        border: none;
+        padding: 1rem;
+      }
+
+      .enter {
+        width: 70px;
+        height: 45px;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: var(--color-blue);
+        color: var(--color-white);
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+}
